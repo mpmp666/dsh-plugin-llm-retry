@@ -1,0 +1,7 @@
+# dsh-plugin-llm-retry bundle patch: inserts this plugin into a profile's layer stack.
+# 具体数值不用改这里：全部在 设置 → 插件 → 插件配置 → 模型重试 里调，
+# 保存在 ~/.dsh/settings.yaml 的 llm-retry 节。也可以在 profile 的
+# cordis.patch.yml 里用 config 覆盖，作为组合层的默认值。
+- insert:
+    - id: llm-retry-settings
+      name: 'dsh-plugin-llm-retry'

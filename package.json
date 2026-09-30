@@ -1,0 +1,35 @@
+{
+  "name": "dsh-plugin-llm-retry",
+  "version": "1.0.0",
+  "description": "Configurable model-request retry policy for DeepSeek Harness: settings-page control over the first wait, per-attempt growth (with exponential backoff switchable off), the delay cap, the retry count, jitter, provider Retry-After, and the retryable failure codes.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "client",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings"
+      ],
+      "platform": "web"
+    }
+  }
+}
